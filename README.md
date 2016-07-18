@@ -25,18 +25,19 @@ Looking at the above plot, which splits the passengers into their class while ab
 The models used for this project were Logistic Regression, KNN, and Decision Tree Classifier.
 
 In terms of quanitifying performance for these classifications, I based my overall decision on AUC scores for the different model types. The scores achieved were as follows:  
-* auc for logistic model is:  0.864832384567
-* auc for knn model is:  0.877039848197
-* auc for decision tree is:  0.877039848197  
+* auc for logistic model is:  0.865298555172
+* auc for knn model is:  0.876294591484
+* auc for decision tree is:  0.841324638793
 
 ![Roc Curves](https://raw.githubusercontent.com/oneilltp18/titanic_project/master/visualization/roc_curves.png "Roc Curves")
 
-As you can see, my best AUC scores were achieved with the KNN model and the Decision Tree model. For all three estimators, a gridsearch was performed to find the optimal parameters, and those parameters were used to create the model that output the predictions.
+As you can see, my best AUC scores were achieved with the KNN model and the Logistic Regression model. For all three estimators, a gridsearch was performed to find the optimal parameters, and those parameters were used to create the model that output the predictions.
 
 As a bonus, I tried out a Bagging Classifier on my ideal Decision Tree model to see how that would affect things. Overall, when I acquired a score through cross-validation and taking the mean of the accuracy score for each of my 5 total folds, the scores were much worse for the grid-searched bagging classifier than with the simple decision tree. Something curious was happening, however. When I simply used a default bagging classifier with a Decision Tree as the base estimator, I was getting cross validation scores very similar to those of the decision tree itself, but when I gridsearched over different Bagging Classifier parameters, I ended up getting much worse scores (around .8 compared to around .55). What makes this even more curious is that the base parameters that resulted in a cross validation score very similar to the Decision Tree model were searched during my gridsearch, but still the scores came out much worse. This is certainly something to dig deeper into.  
 
 # Results Summarized  
-Judging by AUC Scores, **KNN and Decision Tree Classifier performed best with scores of .877 each.**   
+Judging by AUC Scores, **KNN and Logistic Regression performed best with scores of .876 and .865 respectively.**   
 
 Judging by Accuracy Scores, **KNN performed best with an Accuracy Score of .81, or 81% accuracy** at predicting whether a passenger survived or not. **Decision Tree Classifier was close behind with a 80% accuracy.**
 
+Based on these results, I would choose to move forward with the KNN (K-nearest neighbors) model.
