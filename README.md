@@ -38,5 +38,5 @@ As a bonus, I tried out a Bagging Classifier on my ideal Decision Tree model to 
 # Results Summarized  
 Judging by AUC Scores, **KNN and Decision Tree Classifier performed best with scores of .877 each.**   
 
-Judging by Accuracy Scores, **KNN performed best with an Accuracy Score of .81, or 81% accuracy** at predicting whether a passenger survived or not.
+Judging by Accuracy Scores, **KNN performed best with an Accuracy Score of .81, or 81% accuracy** at predicting whether a passenger survived or not. **Decision Tree Classifier was close behind with a 80% accuracy.**
 
