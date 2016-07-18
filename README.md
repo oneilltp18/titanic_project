@@ -1,16 +1,24 @@
 # Project 5 Titanic Data
 ### Overview
 
-The goal of this project was to analyze a dataset including information on passengers on the Titanic to see if they survived or not.
+The goal of this project was to analyze a dataset with information on passengers of the Titanic, and then to attempt to create a model that would predict whether or not they survived the disaster.  
 
-I first imported the dataset by connecting to the remote psql database and then used SQLAlchemy and Pandas to create a dataframe of all the information. After that I did some data cleaning to get myself in a position where I had a clean dataframe to perform analysis on. I created some dummy columns, checked for and dealt with null values, along with a few other data cleaning techniques.
+I first imported the dataset by connecting to the remote postgreSQL database and then used SQLAlchemy and Pandas to create a dataframe of all the information. After some extensive cleaning, I was in a position to begin making a few different models to see how well I could predict the outcome of passengers.  
 
-Once I had a clean dataframe, I moved on to the analysis portion of the project. I made a few different model types (Logistic Regression, KNN, Decision Tree) and used some model enhancement techniques (GridSearch, Cross Validation, Train Test Split, Bagging) to create the best model possible.
+## Visualization  
 
-# Findings
+During my exploratory Data Analysis
 
-I found that most of my accuracy scores for my models sat right around .79. My second best score was acquired when I performed a gridsearch on my KNN model, found the ideal parameters, re-instantiated the KNN model with those parameters, and then tested that with 5-fold cross validation. This gave me an accuracy score of .809.
+## Findings
 
-My Best score was acquired when I performed a gridsearch on my Decision Tree Classifier to find the ideal Parameters. When I performed the gridsearch, I printed out ".best_score_" to see what my most accurate model in that run-through was and got a score of .813. The parameters I was iterating over for the gridsearch were "n estimators", "max samples", and "max features". This was my best accuracy score for the project.
+The models used for this project were Logistic Regression, KNN, and Decision Tree Classifier.
 
-One curious result was when I was performing the analysis with bagging on my decision tree model. Once I found the ideal parameters for my decision tree model, I then performed a grid search to find the best parameters for the bagging classifier as well. Once I ran a model with ideal Decision Tree parameters combined with ideal Bagging Classifier parameters, my accuracy score dropped down to around .73. This was my lowest score of the project.
+In terms of quanitifying performance for these classifications, I based my overall decision on AUC scores for the different model types. The scores achieved were as follows:  
+* auc for logistic model is:  0.864832384567
+* auc for knn model is:  0.877039848197
+* auc for decision tree is:  0.877039848197  
+
+As you can see, my best AUC scores were achieved with the KNN model and the Decision Tree model. For all three estimators, a gridsearch was performed to find the optimal parameters, and those parameters were used to create the model that output the predictions.
+
+As a bonus, I tried out a Bagging Classifier on my ideal Decision Tree model to see how that would affect things. Overall, when I acquired a score through cross-validation and taking the mean of the accuracy score for each of my 5 total folds, the scores were much worse for the grid-searched bagging classifier than with the simple decision tree. Something curious was happening, however. When I simply used a default bagging classifier with a Decision Tree as the base estimator, I was getting cross validation scores very simply to those of the decision tree itself, but when I gridsearched over different Bagging Classifier parameters, I ended up getting much worse scores (around .8 compared to around .55). What makes this even more curious is that the base parameters that resulted in a cross validation score very similar to the Decision Tree model were searched during my gridsearch, but still the scores came out much worse. This is certainly something to dig deeper into.
+
