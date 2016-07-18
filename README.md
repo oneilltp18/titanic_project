@@ -18,6 +18,8 @@ In terms of quanitifying performance for these classifications, I based my overa
 * auc for knn model is:  0.877039848197
 * auc for decision tree is:  0.877039848197  
 
+![Roc Curves](https://raw.githubusercontent.com/oneilltp18/titanic_project/master/visualization/roc_curves.png "Roc Curves")
+
 As you can see, my best AUC scores were achieved with the KNN model and the Decision Tree model. For all three estimators, a gridsearch was performed to find the optimal parameters, and those parameters were used to create the model that output the predictions.
 
 As a bonus, I tried out a Bagging Classifier on my ideal Decision Tree model to see how that would affect things. Overall, when I acquired a score through cross-validation and taking the mean of the accuracy score for each of my 5 total folds, the scores were much worse for the grid-searched bagging classifier than with the simple decision tree. Something curious was happening, however. When I simply used a default bagging classifier with a Decision Tree as the base estimator, I was getting cross validation scores very simply to those of the decision tree itself, but when I gridsearched over different Bagging Classifier parameters, I ended up getting much worse scores (around .8 compared to around .55). What makes this even more curious is that the base parameters that resulted in a cross validation score very similar to the Decision Tree model were searched during my gridsearch, but still the scores came out much worse. This is certainly something to dig deeper into.
