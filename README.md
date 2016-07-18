@@ -11,6 +11,7 @@ During my exploratory Data Analysis I created a few images that I thought did an
 
 ![Gender vs Age](https://raw.githubusercontent.com/oneilltp18/titanic_project/master/visualization/gender_age.png "Gender vs Age")  
 The above plot does an excellent job showing the plight of the male passengers as compared to the female passengers aboard the Titanic. You can very clearly see that a massive portion of the male passengers did not survive (noted by the blue dot, as opposed the green meaning they survived). Of the males that did survive, there is a concentrated clump towards the much lower end of the age spectrum.  
+
 This is a very strong and chilling visualization of the often-quoted phrase "Women and children first."
 
 ## Findings
