@@ -25,9 +25,9 @@ Looking at the above plot, which splits the passengers into their class while ab
 The models used for this project were Logistic Regression, KNN, and Decision Tree Classifier.
 
 In terms of quanitifying performance for these classifications, I based my overall decision on AUC scores for the different model types. The scores achieved were as follows:  
-* auc for logistic model is:  0.865298555172
-* auc for knn model is:  0.876294591484
-* auc for decision tree is:  0.841324638793
+* auc for logistic model is:  0.895997239476
+* auc for knn model is:  0.914078674948
+* auc for decision tree is:  0.886335403727
 
 ![Roc Curves](https://raw.githubusercontent.com/oneilltp18/titanic_project/master/visualization/roc_curves.png "Roc Curves")
 
